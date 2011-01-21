@@ -148,15 +148,7 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    {
-      :person => {
-        :id           => self.guid,
-        :name         => self.name,
-        :url          => self.url,
-        :exported_key => exported_key,
-        :diaspora_handle => self.diaspora_handle
-      }
-    }
+   {:id => self.guid, :label => self.name, :value => self.name}
   end
 
   def self.from_post_comment_hash(hash)
